@@ -22,8 +22,11 @@ async def normal_handler(event):
 
 client.start()
 
+channels = []
 for dialog in client.iter_dialogs():
     if isinstance(dialog.entity, Channel):
-        print(dialog.entity.title + " - " + str(dialog.entity.id))
+        channels.append(dialog.entity.title + ' - ' + str(dialog.entity.id))
+
+print(channels)
 
 client.run_until_disconnected()
